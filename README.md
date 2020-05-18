@@ -4,3 +4,11 @@ This python program rates stocks out of 100 based on valuation, profitability, g
 
 
 View files `S&P500StockRatings.csv` and `MidCap+2BStockRatings` as example of outputs
+
+# How to Run
+
+  1. Clone the repository 
+  2. Edit the path variables in `Average Sector Metrics.py` and `stockratings.py` 
+  3. Run `Average Sector Metrics.py`, this file generates necessary data for each sector in the stock market
+  4. Run `stockratings.py` 
+  5. Analyze output through excel!
