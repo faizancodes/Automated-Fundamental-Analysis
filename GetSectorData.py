@@ -111,7 +111,7 @@ for i in range(len(sectors)):
     stocksAdded = 20
     stockData = []
     
-    print('Gathering data from ' + sectors[i] + '...')
+    print('\nGathering data from ' + sectors[i] + '...')
 
     while stocksAdded == 20:
 
