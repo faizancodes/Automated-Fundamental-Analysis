@@ -370,3 +370,4 @@ for symbolSet in symbolSets:
     MyFile.close()
     print('Saved as ' + symbolsPath + symbolSet + 'Symbols.csv')
 
+print('Finished running!')
