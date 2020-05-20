@@ -24,7 +24,8 @@ sectorData = []
 
 
 # Change this variable to represent the location in which all the 'Sector Data' csv files are saved.
-# These files were created after running Average Sector Metrics.py
+# These files were created after running GetSectorData.py
+# Make sure your path ends with '\\' if you are on Windows or '/' for MacOS
 path = 'C:\\Users\\faiza\\OneDrive\\Desktop\\StockData\\Sector Data\\'
 
 # Change this to your useragent. Type in 'what is my user agent' in google and copy paste the text here 
@@ -36,12 +37,13 @@ agent = {"User-Agent":'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537
 #stockSet = 'MidCap+2B'
 stockSet = 'S&P500'
 
-# Change this variable to represent the location of the repository you cloned. 
-# This is where'S&P500Symbols.csv' and 'MidCap+2BSymbols.csv' are located  
+# Change this variable to represent the location of the files 'S&P500Symbols.csv' and 'MidCap+2BSymbols.csv'
+# Change only the part before the + sign
 symbolsFileName = 'C:\\Users\\faiza\\OneDrive\\Desktop\\StockData\\SymbolData\\' + stockSet + 'Symbols.csv'
 
 
 # Change this to the location in which you want to save your csv files 
+# Change only the part before the + sign
 saveToFileName = 'C:\\Users\\faiza\\OneDrive\\Desktop\\Stock Ratings\\' + stockSet + 'StockRatings.csv'
 
 
