@@ -9,7 +9,8 @@ View files `S&P500StockRatings.csv` and `MidCap+2BStockRatings` as example of ou
 
 The grading system used in this program is based on the normal distribution of values for a certain metric for a specified sector. For example, if I want to grade the Net Margin of a stock in the Technology sector, I look at the net margins of all the stocks in the technology sector and grade the stock's net margin based on its percentile in the distribution of values.
 
-In this figure, we see that the average net margin for a stock in technology sector is 1.8% and the 90th percentile is 16.45. 
+In this figure, we see that the average net margin for a stock in technology sector is 1.8% and the 90th percentile is 16.45%. 
+
 The grading system utilized in the program takes the standard deviation of the set of values after removing outliers and divides that number by 3, which is represented by the 'Change' value shown in the figure, equaling 4.68. This is the value that is used to grade each metric for each stock. 
 
 
