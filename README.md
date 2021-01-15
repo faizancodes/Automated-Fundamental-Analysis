@@ -29,6 +29,7 @@ After all the metrics in each category of valuation, profitability, growth, and 
 
   1. Clone the repository `git clone https://github.com/faizancodes/Automated-Fundamental-Analysis.git`
   2. Run `cd Automated-Fundamental-Analysis`
-  3. Run `getsectordata.py`, this file generates necessary data for each sector in the stock market
-  4. Run `stockratings.py`, this will generate the csv files you can use for fundamental analysis
-  5. Open the csv files in the StockRatings folder created from the program through excel and analyze!
+  3. Download all the dependencies `pip install -r requirements.txt` 
+  4. Run `getsectordata.py`, this file generates necessary data for each sector in the stock market
+  5. Run `stockratings.py`, this will generate the csv files you can use for fundamental analysis
+  6. Open the csv files in the StockRatings folder created from the program through excel and analyze!
