@@ -1,0 +1,6 @@
+tqdm==4.56.0
+requests==2.23.0
+numpy==1.18.4
+seaborn==0.10.1
+pandas==1.0.5
+beautifulsoup4==4.9.3
