@@ -25,7 +25,7 @@ Based on this figure and the 'Change' value, a stock in the technology sector wi
 
 After all the metrics in each category of valuation, profitability, growth, and price performance are graded, the grades are then converted to numbers and then the average of the values is computed. To get the overall rating of a stock, these numerical ratings for each category are added together and multiplied to get a score out of 100. 
 
-# How to Run
+# How to Run the Code
 
   1. Clone the repository `git clone https://github.com/faizancodes/Automated-Fundamental-Analysis.git`
   2. Run `cd Automated-Fundamental-Analysis`
