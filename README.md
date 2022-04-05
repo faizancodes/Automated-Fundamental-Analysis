@@ -12,7 +12,7 @@ View the file `StockRatings-04.05.22.csv` as an example of the output of this pr
   3. Download all the dependencies `pip install -r requirements.txt` 
   4. Run `stockgrader.py`, this will scrape data from all 8300+ stocks on Finviz.com and grade each of them out of 100
      - The program will also generate the CSV files you can use for analysis
-  5. Open the csv files in the StockRatings folder created from the program through excel and analyze!
+  5. Open the csv file created from the program through Excel and analyze!
 
 # How to Run the Web App
   1. Run `cd WebApp`
@@ -42,7 +42,7 @@ Based on this figure and the 'Change' value, a stock in the technology sector wi
   - 15% is rated A
   - 11% is rated A- 
   
-<img src="https://user-images.githubusercontent.com/43652410/98454570-f442cf80-2133-11eb-8a3a-cee8da8a3f59.jpg" width="550" height="400" alt="">
+<img src="https://user-images.githubusercontent.com/43652410/98454570-f442cf80-2133-11eb-8a3a-cee8da8a3f59.jpg" width="650" height="500" alt="">
 
 
 After all the metrics in each category of valuation, profitability, growth, and price performance are graded, the grades are then converted to numbers and then the average of the values is computed. To get the overall rating of a stock, these numerical ratings for each category are added together and multiplied to get a score out of 100. 
