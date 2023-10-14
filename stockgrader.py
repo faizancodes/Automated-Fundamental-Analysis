@@ -15,6 +15,7 @@ import random
 import time
 import collections
 import warnings
+import re
 
 warnings.filterwarnings('ignore')
 
@@ -84,10 +85,10 @@ def getNumStocks(url):
     page = requests.get(url, headers=headers, proxies = {"http": next(proxyPool)})
     soup = BeautifulSoup(page.content, 'html.parser')
 
-    tableRows = soup.find_all('a', class_ = 'screener-link')
+    tableRows = soup.find_all('div', id = 'screener-total')
     
     raw_num = str(tableRows[0])
-    num_stocks = raw_num[raw_num.find('">') + 2 : raw_num.find('</a>')]
+    num_stocks = re.search(r'\d{4,5}', raw_num).group()
     
     return float(num_stocks)
 
@@ -137,10 +138,7 @@ def get_company_data(url, debug=False):
             
             pbar.update(20)
 
-    allStockData = pd.concat(dataframes)
-    allStockData.columns = list(allStockData.iloc[0])
-    allStockData = allStockData[1:]
-    
+    allStockData = pd.concat(dataframes)    
 
     
 def remove_outliers(S, std):    
@@ -162,7 +160,7 @@ def get_sector_data():
         
         for metric in metrics:
             
-            rows[metric] = rows[metric].str.rstrip('%')
+            rows[metric] = rows[metric].astype(str).str.rstrip('%')
             rows[metric] = pd.to_numeric(rows[metric], errors='coerce')
             data = remove_outliers(rows[metric], 2)
             
@@ -305,8 +303,7 @@ def export_to_csv(filename):
     allStockData['Percent Diff'] = (pd.to_numeric(allStockData['Target Price'], errors='coerce') - pd.to_numeric(allStockData['Price'], errors='coerce')) / pd.to_numeric(allStockData['Price'], errors='coerce') * 100
 
     ordered_columns = 'Ticker, Company, Market Cap, Overall Rating, Sector, Industry, Country, Valuation Grade, Profitability Grade, Growth Grade, Performance Grade, Fwd P/E, PEG, P/S, P/B, P/C, P/FCF, Dividend, Payout Ratio, EPS this Y, EPS next Y, EPS past 5Y, EPS next 5Y, Sales past 5Y, EPS Q/Q, Sales Q/Q, Insider Own, Insider Trans, Inst Own, Inst Trans, Short Ratio, ROA, ROE, ROI, Curr R, Quick R, LTDebt/Eq, Debt/Eq, Gross M, Oper M, Profit M, Perf Month, Perf Quart, Perf Half, Perf Year, Perf YTD, Volatility M, SMA20, SMA50, SMA200, 52W High, 52W Low, RSI, Earnings, Price, Target Price, Percent Diff'
-
-    stock_csv_data = allStockData
+    
     stock_csv_data = allStockData[ordered_columns.replace(', ', ',').split(',')]
     stock_csv_data.to_csv(filename, index=False)
     
