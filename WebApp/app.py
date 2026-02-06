@@ -177,9 +177,7 @@ if user_input_file is not None:
 
      ticker = st.text_input('Enter a Ticker Symbol', 'AAPL')
 
-     row = df[df['Ticker'] == ticker]
 
-     rating = round(row['Overall Rating'].values[0], 1)
 
      col1, col2, col3 = st.columns(3)
      col1.metric("Company", row['Company'].values[0])
@@ -297,3 +295,19 @@ if user_input_file is not None:
           perf_fig, perf_subheader, perf_md = ut.plot_dist(df, ticker, sector=(filter_by=='Sector'), _filter=row[filter_by].values[0], metric=_metric, metric_val=row[_metric].values[0], fig_size=(35, 25), show_ticker=False, show_subheader=False)
           perf_cols2[i].subheader(perf_subheader)
           perf_cols2[i].pyplot(perf_fig)
+
+     # Performance Histogram
+
+     st.text('')
+     st.subheader('Performance Metrics Histogram')
+
+     hist_metric = st.selectbox(
+          'Select performance metric for histogram',
+          (['Perf Month', 'Perf Quart', 'Perf Half', 'Perf Year', 'Perf YTD', 'Volatility M']))
+
+     fig, ax = plt.subplots(figsize=(10, 6))
+     sns.histplot(df[hist_metric], bins=20, kde=True, ax=ax)
+     ax.set_title(f'Histogram of {hist_metric}')
+     ax.set_xlabel(hist_metric)
+     ax.set_ylabel('Frequency')
+     st.pyplot(fig)
